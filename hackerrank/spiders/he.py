@@ -33,7 +33,7 @@ class HeSpider(scrapy.Spider):
         url = 'https://api.jsonbin.io/b/5d2448600e09805769fd5ad9'
         headers = {'Content-Type': 'application/json'}
         req = requests.put(url, json=bin, headers=headers)
-        
+        print(req.text)
  
 
     def parse(self, response):

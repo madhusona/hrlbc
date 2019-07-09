@@ -10,8 +10,8 @@ class HeSpider(scrapy.Spider):
     bin=[]
        
   
-    def start_requests(self):
-        global bin
+    def start_requests(self,bin=bin):
+        
         users=[['abdul671','it'],['bharath593','it'],['deepan71','it'],['devasena7','it'],['hari1243','it'],
                ['gokul720','it'],['mugil4','it'],['mano94','it'],['peru3','it'],['jagadesh45','it'],
                ['selinajanetrachel','it'],['rishi584','it'],['rahul1525','it'],['pradeep1400','it'],
@@ -41,8 +41,8 @@ class HeSpider(scrapy.Spider):
         print("finished")
  
 
-    def parse(self, response):
-        global bin
+    def parse(self, response,bin=bin):
+        
         
         score=response.xpath("///a[@class='link-13']/text()").extract()
         

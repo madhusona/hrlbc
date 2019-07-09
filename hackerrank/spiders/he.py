@@ -34,6 +34,7 @@ class HeSpider(scrapy.Spider):
         headers = {'Content-Type': 'application/json'}
         req = requests.put(url, json=bin, headers=headers)
         print("answer")
+        print(bin)
         print(req.text)
         print("finished")
  

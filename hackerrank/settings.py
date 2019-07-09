@@ -13,13 +13,14 @@ BOT_NAME = 'hackerrank'
 
 SPIDER_MODULES = ['hackerrank.spiders']
 NEWSPIDER_MODULE = 'hackerrank.spiders'
-FEED_FORMAT="csv"
-FEED_URI="infosystest.csv"
+FEED_FORMAT="json"
+FEED_URI="infosystest.json"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'hackerrank (+http://www.yourdomain.com)'
-USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36"
+#USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36"
+#USER_AGENT="Scrapy/VERSION (+https://scrapy.org)"
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 

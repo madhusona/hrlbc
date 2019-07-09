@@ -13,11 +13,12 @@ class HackSpider(scrapy.Spider):
         score=response.xpath("//div[@class='span-flex-3']/p/text()").extract()
         row_data=zip(username,score)
         for item in row_data:
+            print(item)
             score={
-                'page':'infosystest7',
+                'page':'tcs test 1',
                 'username':item[0],
                 'score':item[1],
-                'batch':'product',
+                'batch':'java',
                 'mode':'test'
             }
             

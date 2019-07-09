@@ -7,9 +7,11 @@ import requests
 class HeSpider(scrapy.Spider):
     name = 'he'
     allowed_domains = ['hackerearth.com']
+    bin=[]
        
   
     def start_requests(self):
+        global bin
         users=[['abdul671','it'],['bharath593','it'],['deepan71','it'],['devasena7','it'],['hari1243','it'],
                ['gokul720','it'],['mugil4','it'],['mano94','it'],['peru3','it'],['jagadesh45','it'],
                ['selinajanetrachel','it'],['rishi584','it'],['rahul1525','it'],['pradeep1400','it'],
@@ -25,11 +27,11 @@ class HeSpider(scrapy.Spider):
                ['sobhika','cse'],['sanjai32','cse'],['shesha3','cse'],['dhinesh112','cse']]
         
        
-        bin=[]
+      
         for user in users:
             url="https://www.hackerearth.com/users/pagelets/"+user[0]+"/solved-practice-problems/"
             
-            yield scrapy.Request(url=url,meta={'department':user[1],'username':user[0],'bin':bin})
+            yield scrapy.Request(url=url,meta={'department':user[1],'username':user[0]})
         url = 'https://api.jsonbin.io/b/5d2448600e09805769fd5ad9'
         headers = {'Content-Type': 'application/json'}
         req = requests.put(url, json=bin, headers=headers)
@@ -40,6 +42,7 @@ class HeSpider(scrapy.Spider):
  
 
     def parse(self, response):
+        global bin
         
         score=response.xpath("///a[@class='link-13']/text()").extract()
         
@@ -49,6 +52,6 @@ class HeSpider(scrapy.Spider):
                 'problem':score,
                 'total':len(score)                           
             } 
-        (response.meta['bin']).append(score)
+        bin.append(score)
         
         yield score
